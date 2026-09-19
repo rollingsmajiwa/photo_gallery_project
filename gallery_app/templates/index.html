@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+    {% block content %}
+    <img src="{% static 'images/reg7.jpg' %}" alt="students" width="400" height="400"></img>
+        <h1>Welcome to my Gallery App</h1>
+        <p>My name is {{ name|upper }} and i am {{ age }} years old</p>
+    {% endblock %}

@@ -4,22 +4,26 @@
 
 
     {% block content %}
-<section class="hero">
-  <h1>{{ message }}</h1>
-  <p>Discover visual stories, landscape views, and creative moments.</p>
-  <a href="{% url 'gallery' %}">Explore Gallery</a>
+<section class="bg-gray-900 text-white rounded-xl p-6 mb-10 shadow-md">
+    <div class="mb-8 text-center">
+    <h1 class="text-3xl font-extrabold text-gray-900">Photo Gallery</h1>
+    <p class="text-gray-300 text-2xl mt-2">Explore our complete collection of photography.</p>
+</div>
 </section>
 <section class="featured">
-  <h2>Featured Photos</h2>
-  <div class="photo-grid">
-    {% for photo in photos|slice:":3" %}
-      <div class="photo-card">
-        <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
-        <h3>{{ photo.title }}</h3>
-      </div>
+  <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Photo Gallery</h2>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {% for photo in photos %}
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+            <img src="{{ photo.image.url }}" alt="{{ photo.title }}" class="w-full h-48 object-cover">
+            <div class="p-4 border-t border-gray-100">
+                <h3 class="font-medium text-gray-900 text-base truncate">{{ photo.title }}</h3>
+            </div>
+        </div>
     {% empty %}
-      <p>No photos uploaded yet!</p>
+        <p class="col-span-full text-center text-gray-500 py-12">No photos available in the gallery yet.</p>
     {% endfor %}
-  </div>
+</div>
 </section>
     {% endblock %}

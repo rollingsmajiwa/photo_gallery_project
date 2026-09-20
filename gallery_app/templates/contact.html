@@ -5,10 +5,18 @@
 <form method="post">
      {% csrf_token %}
    
-    <label for="fnmae">First Name</label>
-    <input type="text">
-    <label for="mail">Email</label>
-    <input type="email">
+    <div>
+        <label for="first_nmae">First Name:</label>
+        <input type="text">
+    </div>
+    <div>
+        <label for="mail">Email:</label>
+        <input type="email">
+    </div>
+    <div>
+        <label for="message">Message:</label>
+        <textarea name="message" id="message" placeholder="Write your message here.." required rows="5" cols="40"></textarea>
+    </div>
     <button type="submit">Submit</button>
 </form>
 {% endblock %}

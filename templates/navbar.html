@@ -2,8 +2,9 @@
     <ul class=" text-black flex items-left text-lg  ">
         <li class="px-8 hover: text-black hover:text-red-700"><a href=" {% url 'home' %}">Home</a></li>
         
-        <li class=" hover:text-red-700"><a href="{% url 'about' %}">About</a></li>
-        <li class=" hover:text-red-700 px-8"><a href="{% url 'blogs' %}">Gallery</a></li>
+        <li class=" hover:text-red-700"><a href="{% url 'contact' %}">Contact</a></li>
+        
+        <li class=" hover:text-red-700 px-8"><a href="{% url 'gallery' %}">Gallery</a></li>
         {% if user.is_authenticated %}
         <span>Welcome {{ user.username }}</span>
         <form action="{% url 'logout' %}" method="post">

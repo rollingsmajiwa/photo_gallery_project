@@ -5,6 +5,7 @@
             <a href="{% url 'home' %}" class="text-gray-300 hover:text-white transition">Home</a>
             <a href="{% url 'gallery' %}" class="text-gray-300 hover:text-white transition">Gallery</a>
             <a href="{% url 'contact' %}" class="text-gray-300 hover:text-white transition">Contact</a>
+            <a href="{% url 'register' %}" class="bg-black hover:bg-gray-800 px-3 py-2.5 rounded font-bold border border-gray-700">Regisre</a>
             {% if user.is_authenticated %}
                 <span class="text-gray-400">Hello, {{ user.username }}</span>
         <form action="{% url 'logout' %}" method="post" class="flex justify-between">

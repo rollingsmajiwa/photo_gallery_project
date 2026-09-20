@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Register - My Gallery{% endblock %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-sm border border-gray-200 mt-6">
+    <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-900">Create an Account</h2>
+        <p class="text-gray-600 text-sm mt-1">Sign up to access the full photo gallery</p>
+    </div>
+        </div>
+    {% endif %}
+
+    <form method="post" class="space-y-4">
+        {% csrf_token %}
+
+        <div>
+            {{ form.as_p }}
+        </div>
+
+        <button type="submit" 
+                class="w-full bg-black hover:bg-gray-800 text-white font-medium">
+            Sign Up
+        </button>
+    </form>
+
+    <div class="text-center text-sm text-gray-600 mt-6 border-t border-gray-100 pt-4">
+        Already have an account? 
+        <a href="{% url 'login' %}" class="text-black font-semibold hover:underline">Log in here</a>
+    </div>
+</div>
+{% endblock %}

@@ -9,3 +9,8 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"Message from {self.first_name} ({self.email})"
+
+
+class Photo(models.Model):
+    title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='photos/')

@@ -4,7 +4,22 @@
 
 
     {% block content %}
-    <img src="{% static 'images/reg7.jpg' %}" alt="students" width="400" height="400"></img>
-        <h1>{{ message|upper }}</h1>
-        <p>My name is {{ name|upper }} and i am {{ age }} years old</p>
+<section class="hero">
+  <h1>{{ message }}</h1>
+  <p>Discover visual stories, landscape views, and creative moments.</p>
+  <a href="{% url 'gallery' %}">Explore Gallery</a>
+</section>
+<section class="featured">
+  <h2>Featured Photos</h2>
+  <div class="photo-grid">
+    {% for photo in photos|slice:":3" %}
+      <div class="photo-card">
+        <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+        <h3>{{ photo.title }}</h3>
+      </div>
+    {% empty %}
+      <p>No photos uploaded yet!</p>
+    {% endfor %}
+  </div>
+</section>
     {% endblock %}

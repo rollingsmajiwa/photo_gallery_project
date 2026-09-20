@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import ContactMessage
+from .models import ContactMessage, Photo
 
 # Create your views here.
 def home(request):
-    context = {"name":"Rollings Majiwa"}
+    context = {"message":"Discover visual stories, landscape views, and creative moments."}
     return render(request, "index.html", context)
 
 def contact(request):
@@ -24,5 +24,6 @@ def contact(request):
 
 @login_required
 def gallery(request):
-    context = {"message": "welcome to gallery"}
+    photos = Photo.objects.all()
+    context = {"message": "welcome to my Gallery", "photos": photos}
     return render(request, 'gallery.html', context)

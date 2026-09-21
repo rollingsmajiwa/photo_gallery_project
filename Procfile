@@ -1,0 +1,1 @@
+web: gunicorn week2_project.wsgi:application
